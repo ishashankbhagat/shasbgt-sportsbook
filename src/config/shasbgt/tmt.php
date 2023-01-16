@@ -47,6 +47,6 @@ return [
     'srsport3' => [ 'market_id' => [ 251 ] ],
   ],
 
-  'tmt_lock_html' => '<img src="/assets/sportsbook/lock.svg">',
+  'tmt_lock_html' => '/sportsbook/assets/lock.svg',
 
 ];

@@ -48,8 +48,7 @@ var tmt_odds_json_base_url = decodeURIComponent('{{\Storage::disk(config("shasbg
 
 var sport_markets = @json(config('shasbgt.tmt.sport_markets'));
 
-var tmt_lock_html = '{{config("shasbgt.tmt.tmt_lock_html")}}';
-
+var tmt_lock_html = '<img src="{{config("shasbgt.tmt.tmt_lock_html")}}">';
 
 
 setInterval(fetchTmtList,tmt_update_interval);
