@@ -21,11 +21,5 @@ class SportsbookServiceProvider extends ServiceProvider {
   {
 
   }
-
-  static public function checkLoading()
-  {
-    return 'yes loading';
-  }
-  
 }
 ?>

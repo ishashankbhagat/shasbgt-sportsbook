@@ -19,36 +19,36 @@
 </style>
 
 <script>
-var tmt_update_interval = 3000;
+var tmt_update_interval = '{{config("shasbgt.tmt.tmt_update_interval")}}';
 
-var tmt_event_box_class = '{{config("sb_tmt.tmt_event_box_class"}}';
-var sport_url_attr = '{{config("sb_tmt.sport_url_attr"}}';
-var event_url_attr = '{{config("sb_tmt.event_url_attr"}}';
-var event_id_attr = '{{config("sb_tmt.event_id_attr"}}';
+var tmt_event_box_class = '{{config("shasbgt.tmt.tmt_event_box_class")}}';
+var sport_url_attr = '{{config("shasbgt.tmt.sport_url_attr")}}';
+var event_url_attr = '{{config("shasbgt.tmt.event_url_attr")}}';
+var event_id_attr = '{{config("shasbgt.tmt.event_id_attr")}}';
 
-var tmt_market_box_class = '{{config("sb_tmt.tmt_market_box_class"}}';
-var market_url_attr = '{{config("sb_tmt.market_url_attr"}}';
+var tmt_market_box_class = '{{config("shasbgt.tmt.tmt_market_box_class")}}';
+var market_url_attr = '{{config("shasbgt.tmt.market_url_attr")}}';
 
-var tmt_outcome_box_class = '{{config("sb_tmt.tmt_outcome_box_class"}}';
-var outcome_url_attr = '{{config("sb_tmt.outcome_url_attr"}}';
+var tmt_outcome_box_class = '{{config("shasbgt.tmt.tmt_outcome_box_class")}}';
+var outcome_url_attr = '{{config("shasbgt.tmt.outcome_url_attr")}}';
 
-var tmt_outcome_name_class = '{{config("sb_tmt.tmt_outcome_name_class"}}';
+var tmt_outcome_name_class = '{{config("shasbgt.tmt.tmt_outcome_name_class")}}';
 
-var tmt_odds_val_class = '{{config("sb_tmt.tmt_odds_val_class"}}';
+var tmt_odds_val_class = '{{config("shasbgt.tmt.tmt_odds_val_class")}}';
 
-var tmt_spark_class = '{{config("sb_tmt.tmt_spark_class"}}';
+var tmt_spark_class = '{{config("shasbgt.tmt.tmt_spark_class")}}';
 
-var tmt_sb_disabled = '{{config("sb_tmt.tmt_sb_disabled"}}';
+var tmt_sb_disabled = '{{config("shasbgt.tmt.tmt_sb_disabled")}}';
 
-var tmt_market_count = '{{config("sb_tmt.tmt_market_count"}}';
+var tmt_market_count = '{{config("shasbgt.tmt.tmt_market_count")}}';
 
-var bs_item_class = '{{config("sb_tmt.bs_item_class"}}';
+var bs_item_class = '{{config("shasbgt.tmt.bs_item_class")}}';
 
-var tmt_odds_json_base_url = decodeURIComponent('{{\Storage::disk(config("sb_tmt.sb_disk_name"))->url(config("sb_tmt.sb_json_path"))}}');
+var tmt_odds_json_base_url = decodeURIComponent('{{\Storage::disk(config("shasbgt.tmt.sb_disk_name"))->url(config("shasbgt.tmt.sb_json_path"))}}');
 
-var sport_markets = @json(config('sb_tmt.sport_markets'));
+var sport_markets = @json(config('shasbgt.tmt.sport_markets'));
 
-var tmt_lock_html = '{{config("sb_tmt.tmt_lock_html")}}';
+var tmt_lock_html = '{{config("shasbgt.tmt.tmt_lock_html")}}';
 
 
 
