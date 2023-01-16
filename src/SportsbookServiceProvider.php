@@ -12,7 +12,7 @@ class SportsbookServiceProvider extends ServiceProvider {
     $this->mergeConfigFrom(__DIR__.'/config/shasbgt/tmt.php', 'shasbgt.tmt');
 
     $this->publishes([
-        __DIR__.'/../config/shasbgt/tmt.php' => config_path('shasbgt/tmt.php'),
+        __DIR__.'/config/shasbgt/tmt.php' => config_path('shasbgt/tmt.php'),
     ]);
 
   }
@@ -21,5 +21,11 @@ class SportsbookServiceProvider extends ServiceProvider {
   {
 
   }
+
+  static public function checkLoading()
+  {
+    return 'yes loading';
+  }
+  
 }
 ?>
