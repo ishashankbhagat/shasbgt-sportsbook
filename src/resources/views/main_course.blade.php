@@ -21,8 +21,9 @@ padding: 10px;
 <script>
 var g_producer_id = null;
 var g_producer_is_down = false;
-var url_event_id = '{{$url_event_id}}';
 var do_producer_check = true;
+var g_marketIdToHead = @json($market_groups);
+var url_event_id = '{{$url_event_id}}';
 
 
 setInterval(function(){
@@ -154,11 +155,7 @@ function appendMarket(event_id,m) {
     market_params.market_url = market_url;
     market_params.market_status_class = market_status_class;
 
-    try {
-      market_params.market_filter_class = getMarketTypeFilters(m.m);
-    } catch (e) {
-      market_params.market_filter_class = getMarketTypeFiltersDefault(m.m);
-    }
+    market_params.market_filter_class = getMarketTypeFilters(m.m);
 
     market_html = '';
 
@@ -357,9 +354,18 @@ function scrollMarketFilter(slug) {
     );
   }
 
-function getMarketTypeFiltersDefault(market_id) {
-  return '';
-}
+  function getMarketTypeFilters(market_id) {
+    if (g_marketIdToHead[market_id]) {
+      mh_class = '';
+
+      $.each(g_marketIdToHead[market_id].split(' '), function(k_,v_){
+        mh_class = mh_class + ' mh_'+v_;
+      })
+    } else {
+      mh_class = 'mh_others';
+    }
+    return mh_class;
+  }
 
 function getSingleMarketHtmlDefault(params) {
   return `
