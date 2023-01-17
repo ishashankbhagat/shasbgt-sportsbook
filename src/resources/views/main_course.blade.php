@@ -127,6 +127,7 @@ function parseMarkets(event_id,markets) {
   });
 
   checkForNoMarkets();
+  checkForMarketTabs();
 }
 
 function suspendedMarket(market_url) {
@@ -299,6 +300,62 @@ function producerDown() {
     $('.noDataFound').hide()
   }
 }
+
+
+function checkForMarketTabs() {
+  $('.filterContainer').show()
+  let tabs = @json($market_type_filters);
+  $.each(tabs,function(i,e){
+    if ($('.mh_'+e.slug).length == 0) {
+      $('.__markettypeFilter[data-slug='+e.slug+']').hide();
+    } else {
+      $('.__markettypeFilter[data-slug='+e.slug+']').show();
+    }
+  });
+  $('.__markettypeFilter[data-slug=all]').show();
+  if ($('.mh_others').length == 0) {
+    $('.__markettypeFilter[data-slug=others]').hide();
+  } else {
+    $('.__markettypeFilter[data-slug=others]').show();
+  }
+  if ($('.__markettypeFilterItems:visible').length == 0) {
+    $('.__markettypeFilter[data-slug=all]').find('.Tab__text___3GNyH').html('All Markets');
+    $('.__markettypeFilter[data-slug=others]').hide();
+  }
+}
+
+$('body').on('click','.__markettypeFilter',function(e){
+
+  let slug = $(this).attr('data-slug');
+
+  $('.__markettypeFilter').removeClass('active');
+  $(this).addClass('active');
+
+  if (slug == 'all') {
+    $('.sb-mdm').show();
+  } else {
+    $('.sb-mdm').hide();
+    $('.mh_'+slug).show();
+  }
+
+  scrollMarketFilter(slug);
+
+});
+
+function scrollMarketFilter(slug) {
+  let numItemsBeforeActive = null;
+  let amtToMove = null;
+  numItemsBeforeActive = $('.__markettypeFilter[data-slug="'+slug+'"]').index();
+  for (let i = 0; i < numItemsBeforeActive; i++) {
+    amtToMove += $(".__markettypeFilter").eq(i).outerWidth(true);
+  }
+  $(".__allMarkettypeFilterContainer").animate(
+    {
+      scrollLeft: amtToMove - 90,
+    },
+    1000
+    );
+  }
 
 function getMarketTypeFiltersDefault(market_id) {
   return '';
